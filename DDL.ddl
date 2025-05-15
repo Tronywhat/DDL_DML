@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS CelularesTFLA;
+CREATE DATABASE CelularesTFLA;
+USE CelularesTFLA;
+
+CREATE TABLE Productos(
+codigo INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100),
+precio DECIMAL(10,2) NOT NULL,
+codigoFabricante INT(10)
+);
+
+CREATE TABLE Fabricantes(
+codigo INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(100)
+);
