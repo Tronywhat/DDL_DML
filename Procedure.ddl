@@ -1,8 +1,8 @@
-USE `celularestfla`;
+USE `consultas`;
 DROP procedure IF EXISTS `Producto`;
 
 DELIMITER $$
-USE `celularestfla`$$
+USE `consultas`$$
 CREATE PROCEDURE `Producto` (
 	IN nombre VARCHAR(100),
     IN precio DECIMAL(10,2),
@@ -14,11 +14,11 @@ END$$
 
 DELIMITER ;
 
-USE `celularestfla`;
+USE `consultas`;
 DROP procedure IF EXISTS `fabricante`;
 
 DELIMITER $$
-USE `celularestfla`$$
+USE `consultas`$$
 CREATE PROCEDURE `fabricante` (
 	IN nombre VARCHAR(100)
 )

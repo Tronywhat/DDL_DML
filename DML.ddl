@@ -20,9 +20,12 @@ CALL producto ("Portátil Ideapd 320", 444, 2);
 CALL producto ("Impresora HP Deskjet 3720", 59.99, 3);
 CALL producto ("Impresora HP Laserjet Pro M26nw", 180, 3);
 
+USE consultas;
+/*Consultas sobre una tabla*/
+
 SELECT nombre FROM productos; /*1*/
 SELECT nombre, precio FROM productos; /*2*/
-SELECT codigo, nombre, precio, codigoFabricante FROM productos; /*3*/
+SELECT * FROM productos; /*3*/
 SELECT nombre, precio, precio*0.90 FROM productos;/*4*/
 SELECT nombre AS "nombre de producto", precio AS "dolares", precio*0.90 AS "euros" FROM productos; /*5*/
 SELECT UPPER(nombre) AS "nombre de producto", precio FROM productos; /*6*/
@@ -55,4 +58,10 @@ SELECT nombre FROM fabricantes WHERE nombre LIKE '%w%';/*32*/
 SELECT nombre FROM fabricantes WHERE LENGTH(nombre) = 4;/*33*/
 SELECT nombre FROM productos WHERE nombre LIKE '%Portátil%';/*34*/
 SELECT nombre, precio FROM productos WHERE nombre LIKE '%Monitor%' AND precio <215;/*35*/
-SELECT nombre, precio FROM productos WHERE precio >=180;/*36*/
+SELECT nombre, precio  FROM productos WHERE precio >= 180 ORDER BY precio DESC, nombre ASC;/*36*/
+
+
+/*1.1.4 Consultas multitabla (Composición interna)*/
+USE consultas;
+/*1*/
+SELECT p.nombre, p.precio, f.nombre FROM producto AS p JOIN fabricante AS f ON p.codigo_fabricante = f.codigo;
