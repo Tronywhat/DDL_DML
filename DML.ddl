@@ -30,4 +30,29 @@ SELECT LOWER(nombre) AS "nombre de producto", precio FROM productos; /*7*/
 SELECT nombre, UPPER(LEFT(nombre,2))  FROM fabricantes; /*8*/
 SELECT nombre, ROUND(precio) FROM productos;  /*9*/
 SELECT nombre, TRUNCATE(precio,0) FROM productos;  /*10*/
-SELECT DISTINCT codigoFabricante FROM productos /*11*/
+SELECT codigoFabricante FROM productos; /*11*/
+SELECT DISTINCT codigoFabricante  FROM productos; /*12*/
+SELECT nombre FROM fabricantes ORDER BY nombre; /*13*/
+SELECT nombre FROM fabricantes ORDER BY nombre DESC; /*14*/
+SELECT nombre, precio FROM productos ORDER BY nombre ASC, precio DESC;/*15*/
+SELECT * FROM fabricantes LIMIT 5;/*16*/
+SELECT * FROM fabricantes LIMIT 2 OFFSET 3; /*17*/
+SELECT nombre, precio FROM productos ORDER BY precio ASC LIMIT 1;/*18*/
+SELECT nombre, precio FROM productos ORDER BY precio DESC LIMIT 1;/*19*/
+SELECT nombre FROM productos WHERE codigoFabricante=2;/*20*/ 
+SELECT nombre FROM productos WHERE precio <=120 ;/*21*/
+SELECT nombre FROM productos WHERE precio >=400 ;/*22*/
+SELECT nombre FROM productos WHERE precio <400 ;/*23*/
+SELECT * FROM productos WHERE precio >=80 AND precio <=300; /*24*/
+SELECT * FROM productos WHERE precio BETWEEN 60 AND 200; /*25*/
+SELECT * FROM productos WHERE precio >=200 AND codigoFabricante=6; /*26*/
+SELECT * FROM productos WHERE codigoFabricante=1 OR codigoFabricante=3 OR codigoFabricante=5; /*27*/ 
+SELECT * FROM productos WHERE codigoFabricante IN(1,3,5); /*28*/ 
+SELECT nombre, precio*100 AS centimos FROM productos WHERE precio; /*29*/ 
+SELECT nombre FROM fabricantes WHERE nombre LIKE 'S%';/*30*/
+SELECT nombre FROM fabricantes WHERE nombre LIKE '%e';/*31*/
+SELECT nombre FROM fabricantes WHERE nombre LIKE '%w%';/*32*/
+SELECT nombre FROM fabricantes WHERE LENGTH(nombre) = 4;/*33*/
+SELECT nombre FROM productos WHERE nombre LIKE '%Portátil%';/*34*/
+SELECT nombre, precio FROM productos WHERE nombre LIKE '%Monitor%' AND precio <215;/*35*/
+SELECT nombre, precio FROM productos WHERE precio >=180;/*36*/
